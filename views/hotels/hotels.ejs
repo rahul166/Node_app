@@ -1,0 +1,27 @@
+<% include ../partials/header.ejs %>
+
+<div class="container">
+<header class="jumbotron">
+    <div class="ciontainer">
+    <h1>Hotels list</h1>
+    <a class="btn btn-info btn-lg" href="/add">Add new hotels</a>
+    </div>
+</header>
+<div class="row text-center">
+<% for(var i=0;i<info.length;i++){ %>
+<div class="col-lg-6">
+    <div class="thumbnail"
+    <h3><%= info[i].name %></h3>
+    <img src="<%= info[i].image %>"></img>
+    <p>
+        <a  class="btn btn-info" href="/hotels/<%= info[i]._id %>">Show more info</a>
+    </p>
+    </div>
+</div>
+
+<% } %>
+</div>
+</div>
+
+
+<% include ../partials/footer.ejs %>

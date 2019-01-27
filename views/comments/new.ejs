@@ -1,0 +1,16 @@
+<!--Comment form-->
+<% include ../partials/header.ejs %>
+<div class="container">
+    <h1>Add a new comment to <%= hotel.name %></h1>
+<form action="/hotels/<%= hotel._id %>/comments" method="POST" name="hot">
+    <div class="input">
+    <input class="form-control" type="text" name="comment[text]" placeholder="text"></input>
+    <input class="btn btn-default btn-large" type="submit"></input>
+    </div>
+</form>
+<p>
+    <a href="/hotels" class="btn btn-primary btn-lg">View your list</a>
+</p>
+</div>
+
+<% include ../partials/footer.ejs %>

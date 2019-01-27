@@ -1,0 +1,59 @@
+<!--SHOW-->
+<% include ../partials/header.ejs %>
+<div class="container">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <p class-"lead">yelpapp</p>
+                <div class="list-group">
+                    <li class="list-group-item">info1</li>
+                    <li class="list-group-item">info2</li>
+                    <li class="list-group-item">info3</li>
+                </div>
+            </div>
+            <div class="col-md-9">
+                <div class="thumbnail">
+                    <img class="img-responsive" src="<%= info.image %>"></img>
+               
+                <div class="caption-full">
+                    <h4 class="pull-right"> <%= info.price %> Rs/night</h4>
+                    <h4><%= info.name %></h4>
+                    
+<p><%= info.description %></p>
+<p>submitted by  <%= info.author.username %></p>
+<% if(currentUser && info.author.id.equals(currentUser._id)){ %>
+<a href="/hotels/<%= info.id %>/edit" class="btn btn-sm btn-success">Edit</a>
+<form id="delete"  action="/hotels/<%= info._id %>?_method=DELETE" method="POST">
+     <button class="btn btn-sm btn-danger">Delete</button>
+</form>
+<% } %>
+</div>
+<div class="well">
+    <div class="pull-right"> <a href="/hotels/<%= info._id %>/comments/new" class="btn btn-sm btn-primary">add a comment</a></div>
+  <p><hr></p>
+<% info.comments.forEach(function(comment){%>
+<strong><%= comment.author.username %></strong>
+    <div class="row">
+        <div class="col-md-12">
+            <%=comment.text %>
+        </div>
+        <% if(currentUser && comment.author.id.equals(currentUser._id)){ %>
+        <a class="btn btn-xs btn-success" href="/hotels/<%= info._id %>/comments/<%= comment._id %>/edit">
+            Edit
+        </a>
+        <form id="delete" action="/hotels/<%= info._id %>/comments/<%= comment._id %>?_method=DELETE" method="POST">
+            <button class="btn btn-xs btn-warning">Delete</button>
+        </form>
+        <% } %>
+    </div>
+<% }) %>
+</div>
+
+
+                   </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<% include ../partials/footer.ejs %>

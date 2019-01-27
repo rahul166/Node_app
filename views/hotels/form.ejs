@@ -1,0 +1,19 @@
+<!--NEW-->
+
+
+<% include ../partials/header.ejs %>
+<div class="container">
+<form action="/hotels" method="POST" name="hot">
+    <div class="input">
+    <input class="form-control" type="text" name="name" placeholder="nameof hotel"></input>
+    <input class="form-control" type="number" name="price" placeholder="price" min="50.0" step="1.0"></input>
+    <input class="form-control" type="text" name="imageurl" placeholder="image"></input>
+    <input class="form-control" type="text" name="description" placeholder="description"></input>
+    <input class="btn btn-default btn-large" type="submit"></input>
+    </div>
+</form>
+</div>
+<p>
+    <a href="/hotels" class="btn btn-primary ntn-lg">View your list</a>
+</p>
+<% include ../partials/footer.ejs %>
