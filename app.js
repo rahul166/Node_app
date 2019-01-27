@@ -1,8 +1,6 @@
 //Connect to database
 var mongoose = require("mongoose");
-mongoose.connect("mongodb://rahul:password@ds157702.mlab.com:57702/yelpapp");
-// mongoose.connect("mongodb://localhost/yelpapp");
-// mongodb://<dbuser>:<dbpassword>@ds157702.mlab.com:57702/yelpapp
+mongoose.connect("mongodb://localhost/Node_app");
 //other required things
 var express=require("express");
 var app=express();
